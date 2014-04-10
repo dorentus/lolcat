@@ -1,0 +1,14 @@
+language: c
+compiler:
+  - gcc
+  - clang
+install:
+    - sudo apt-get -qq install gperf
+before_script:
+  - cd ../
+  - git clone https://github.com/mruby/mruby.git
+  - cd mruby
+  - cp -fp ../mruby-lolcat/.travis_build_config.rb build_config.rb
+script:
+  - "./minirake all test"
+

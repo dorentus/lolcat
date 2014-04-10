@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 #
 # lolcat (c)2011 moe@busyloop.net
 #
@@ -18,8 +16,27 @@
 #
 #  0. You just DO WHAT THE FUCK YOU WANT TO.
 
-require "rubygems"
-require "lolcat/version"
-require "lolcat/cat"
+module Lol
+  def self.cat!(text, opts={})
+    opts = {
+      :animate => false,
+      :duration => 12,
+      :os => 0,
+      :speed => 20,
+      :spread => 8.0,
+      :freq => 0.3
+    }.merge opts
 
-Lol.cat!
+    begin
+      i = 20
+      o = rand(256)
+      text.split("\n").each do |line|
+        i -= 1
+        opts[:os] = o+i
+        Lol.println line, opts
+      end
+      puts "\n"
+    rescue Interrupt
+    end
+  end
+end
