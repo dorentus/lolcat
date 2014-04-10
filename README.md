@@ -22,6 +22,20 @@ end
 ## Usage
 ```ruby
 Lol.cat! 'Rainbows and unicorns! '
+
+Lol.cat $stdin
+
+opts = {
+  :animate => false,
+  :duration => 12,
+  :os => 0,
+  :speed => 20,
+  :spread => 8.0,
+  :freq => 0.3
+}
+fd = File.open('/etc/hosts')
+Lol.cat fd, opts
+fd.close
 ```
 
 ## License
