@@ -3,4 +3,5 @@ MRuby::Gem::Specification.new('mruby-lolcat') do |spec|
   spec.authors = ['ZHANG Yi', 'Moe <moe@busyloop.net>']
   spec.version = '0.0.1'
   spec.add_dependency('mruby-regexp-pcre')
+  spec.add_dependency('mruby-io')
 end
