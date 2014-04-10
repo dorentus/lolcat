@@ -27,16 +27,13 @@ module Lol
       :freq => 0.3
     }.merge opts
 
-    begin
-      i = 20
-      o = rand(256)
-      text.split("\n").each do |line|
-        i -= 1
-        opts[:os] = o+i
-        Lol.println line, opts
-      end
-      puts "\n"
-    rescue Interrupt
+    i = 20
+    o = rand(256)
+    text.split("\n").each do |line|
+      i -= 1
+      opts[:os] = o+i
+      Lol.println line, opts
     end
+    puts "\n"
   end
 end
