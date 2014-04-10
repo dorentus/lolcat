@@ -23,8 +23,6 @@ end
 ```ruby
 Lol.cat! 'Rainbows and unicorns! '
 
-Lol.cat $stdin
-
 opts = {
   :animate => false,
   :duration => 12,
@@ -33,6 +31,9 @@ opts = {
   :spread => 8.0,
   :freq => 0.3
 }
+
+Lol.cat $stdin, opts
+
 fd = File.open('/etc/hosts')
 Lol.cat fd, opts
 fd.close
