@@ -45,3 +45,6 @@ fd.close
 
 ## License
 see [LICENSE](LICENSE)
+
+## Looking for a runnable binary?
+see https://github.com/dorentus/mruby-lolcat-bin
