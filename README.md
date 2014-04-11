@@ -5,6 +5,11 @@ Rainbows and unicorns! forked as a muby gem.
 
 Original ruby gem is here: https://github.com/busyloop/lolcat
 
+## Thanks
+- https://github.com/busyloop/lolcat, the original ruby gem, most of the code was from there
+- https://github.com/janlelis/paint, [the colors!](mrblib/minipaint.rb)
+- https://github.com/mruby/mruby
+
 ## Installation
 - add conf.gem line to `build_config.rb`
 
