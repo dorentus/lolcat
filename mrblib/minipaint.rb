@@ -40,7 +40,6 @@ module Lol
       def cache
         return @cache if @cache
         @cache = Hash.new { |h, k| h[k] = color(*k) }
-        def @cache.[](*k) k.include?(:random) ? self.class.color(*k) : super end
         @cache
       end
 

@@ -56,11 +56,11 @@ module Lol
 
   def self.println_ani(str, opts={})
     return if str.empty?
-    (1..opts[:duration].to_f).each do |i|
+    (1..opts[:duration]).each do |i|
       print "\e[#{str.length}D"
       opts[:os] += opts[:spread]
       println_plain(str, opts)
-      sleep 1.0/opts[:speed]
+      Sleep.usleep (1000000.0/opts[:speed]).to_i
     end
   end
 end
