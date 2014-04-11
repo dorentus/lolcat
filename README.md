@@ -21,16 +21,19 @@ end
 
 ## Usage
 ```ruby
-Lol.cat! 'Rainbows and unicorns! '
-
 opts = {
   :animate => false,
   :duration => 12,
   :os => 0,
   :speed => 20,
   :spread => 8.0,
-  :freq => 0.3
+  :freq => 0.3,
+  :colored => true
 }
+
+Lol.println 'Rainbows and unicorns! '
+
+Lol.cat! ['/etc/hosts', '/etc/fstab'], opts
 
 Lol.cat $stdin, opts
 

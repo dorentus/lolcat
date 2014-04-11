@@ -17,7 +17,7 @@
 #  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 module Lol
-  def self.cat!(text, opts={})
+  def self.halp!(text, opts={})
     opts = {
       :animate => false,
       :duration => 12,
@@ -35,5 +35,22 @@ module Lol
       Lol.println line, opts
     end
     puts "\n"
+  end
+
+  def self.cat!(files, opts={})
+    files.each do |file|
+      fd = $stdin if file == '-' or file == :stdin
+      fd = File.open file unless fd == $stdin
+
+      if opts[:colored]
+        Lol.cat fd, opts
+      else
+        until fd.eof? do
+          $stdout.write(fd.read(8192))
+        end
+      end
+
+      fd.close unless fd == $stdin
+    end
   end
 end
