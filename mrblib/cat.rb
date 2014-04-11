@@ -49,8 +49,8 @@ module Lol
         if opts[:colored]
           Lol.cat fd, opts
         else
-          until fd.eof? do
-            $stdout.write(fd.read(8192))
+          fd.each do |line|
+            puts line
           end
         end
       rescue Errno::ENOENT
