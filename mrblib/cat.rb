@@ -41,14 +41,28 @@ module Lol
     files = [:stdin] if files.empty?
     files.each do |file|
       fd = $stdin if file == '-' or file == :stdin
-      fd = File.open file unless fd == $stdin
 
-      if opts[:colored]
-        Lol.cat fd, opts
-      else
-        until fd.eof? do
-          $stdout.write(fd.read(8192))
+      begin
+        fd = File.open file unless fd == $stdin
+
+        if opts[:colored]
+          Lol.cat fd, opts
+        else
+          until fd.eof? do
+            $stdout.write(fd.read(8192))
+          end
         end
+      rescue Errno::ENOENT
+        puts "lolcat: #{file}: No such file or directory"
+        return
+      rescue Errno::EACCES
+        puts "lolcat: #{file}: Permission denied"
+        return
+      rescue Errno::EISDIR
+        puts "lolcat: #{file}: Is a directory"
+        return
+      rescue Errno::EPIPE
+        return
       end
 
       fd.close unless fd == $stdin

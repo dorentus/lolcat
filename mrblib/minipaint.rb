@@ -28,13 +28,11 @@
 
 module Lol
   module MiniPaint
-    NOTHING = "\033[0m"
-
     class << self
       def [](string, hexcolor)
         return string.to_s if hexcolor.empty?
 
-        cache[hexcolor] + string.to_s + NOTHING
+        cache[hexcolor] + string.to_s + "\033[0m"
       end
 
       private

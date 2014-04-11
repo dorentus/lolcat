@@ -10,4 +10,5 @@ assert('Lol.cat!') do
   }
   assert_nothing_raised { Lol.println 'Rainbows and unicorns!', opts }
   assert_nothing_raised { Lol.cat! ['README.md'], opts }
+  assert_nothing_raised { Lol.cat! ['./nonexistent'], opts }
 end

@@ -39,7 +39,7 @@ module Lol
   def self.println(str, defaults={}, opts={})
     opts.merge!(defaults)
     str.chomp!
-    str.gsub! STRIP_ANSI, '' if !str.nil? and opts[:force]
+    str.gsub! STRIP_ANSI, '' if !str.nil? and opts[:colored]
     str.gsub! "\t", "        "
     opts[:animate] ? println_ani(str, opts) : println_plain(str, opts)
     puts
