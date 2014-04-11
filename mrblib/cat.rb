@@ -38,6 +38,7 @@ module Lol
   end
 
   def self.cat!(files, opts={})
+    opts[:os] = rand(256) if opts[:os] == 0
     files = [:stdin] if files.empty?
     files.each do |file|
       fd = $stdin if file == '-' or file == :stdin
