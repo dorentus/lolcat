@@ -38,6 +38,7 @@ module Lol
   end
 
   def self.cat!(files, opts={})
+    files = [:stdin] if files.empty?
     files.each do |file|
       fd = $stdin if file == '-' or file == :stdin
       fd = File.open file unless fd == $stdin
