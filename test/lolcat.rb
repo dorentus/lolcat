@@ -8,7 +8,7 @@ assert('Lol.cat!') do
     :freq => 0.3,
     :colored => true
   }
-  assert_nothing_raised { Lol.println 'Rainbows and unicorns!', opts }
+  assert_nothing_raised { Lol.println 'RAINBOWS AN UNICORNS!', opts }
   assert_nothing_raised { Lol.cat! ['README.md'], opts }
   assert_nothing_raised { Lol.cat! ['./nonexistent'], opts }
 end

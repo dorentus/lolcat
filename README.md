@@ -1,5 +1,5 @@
 #mruby-lolcat
-Rainbows and unicorns! forked as a muby gem.
+RAINBOWS AN UNICORNS! forked as a muby gem.
 
 [![Build Status](https://travis-ci.org/dorentus/mruby-lolcat.svg?branch=master)](https://travis-ci.org/dorentus/mruby-lolcat)
 
@@ -37,7 +37,7 @@ opts = {
   :colored => true
 }
 
-Lol.println 'Rainbows and unicorns! '
+Lol.println 'RAINBOWS AN UNICORNS! '
 
 Lol.cat! ['/etc/hosts', '/etc/fstab'], opts
 
