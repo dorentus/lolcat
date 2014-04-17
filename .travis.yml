@@ -1,5 +1,5 @@
 language: c
-script: "cd misc; make test"
+script: "make -C binutils test"
 matrix:
   include:
     - compiler: gcc

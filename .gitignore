@@ -17,4 +17,4 @@ pkg/*
 .ccmalloc
 .svn
 cscope.out
-/misc/build
+/binutils/build
