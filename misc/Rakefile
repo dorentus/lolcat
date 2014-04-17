@@ -107,5 +107,5 @@ EOF
 
   TEXT_SINGLELINE == %x[echo #{TEXT_SINGLELINE} | #{BUILD_DIR}/#{APPNAME} | tee].strip || exit!(1)
 
-  TEXT_MULTILINE == %x[echo \"#{TEXT_MULTILINE}\" | #{BUILD_DIR}/#{APPNAME} | tee].strip || exit!(1)
+#  TEXT_MULTILINE == %x[echo \"#{TEXT_MULTILINE}\" | #{BUILD_DIR}/#{APPNAME} | tee].strip || exit!(1)
 end
