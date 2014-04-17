@@ -21,10 +21,25 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 
 ----
-* File mrblib/cat.rb and mrblib/lol.rb was licensed under [WTFPL](WTFPL)
-and is converted to MITL in this project.
+1. File mrblib/cat.rb and mrblib/lol.rb was licensed under WTFPL
+and is converted to The MIT LICENSE in this project.
 
-* The file mrblib/minipaint.rb is forked from [janlelis/paint](https://github.com/janlelis/paint/blob/master/lib/paint.rb) and is licensed under the MIT license:
+> DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE  
+>   Version 2, December 2004
+>
+> Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+>
+> Everyone is permitted to copy and distribute verbatim or modified
+> copies of this license document, and changing it is allowed as long
+> as the name is changed.
+>
+> DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE  
+>   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+>
+>  0. You just DO WHAT THE FUCK YOU WANT TO.
+>
+
+2. The file mrblib/minipaint.rb was forked from [janlelis/paint](https://github.com/janlelis/paint/blob/master/lib/paint.rb) and is licensed under the MIT license:
 
 > The MIT LICENSE
 >
@@ -48,3 +63,4 @@ and is converted to MITL in this project.
 > LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 > OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 > WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+>

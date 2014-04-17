@@ -23,7 +23,7 @@ To compile out of the source code you need the following tools:
 - Parser generator (i.e. `bison`)
 - Ruby 1.8 or 1.9 (i.e. `ruby` or `jruby`)
 
-Read [mruby's document for more infomation](https://github.com/mruby/mruby/tree/master/doc/compile).
+Read [mruby's document](https://github.com/mruby/mruby/tree/master/doc/compile)  for more infomation.
 
 #### Get the code
 ```
