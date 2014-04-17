@@ -20,10 +20,10 @@ task :default => :build
 
 desc "prepair mruby dir"
 task :prepair_mruby do
-  next if File.directory? MRUBY_ROOT
+  next unless Dir["#{MRUBY_ROOT}/*"].empty?
   if system('git rev-parse 2>/dev/null')
     system 'git submodule update --init'
-    next if File.directory? MRUBY_ROOT
+    next unless Dir["#{MRUBY_ROOT}/*"].empty?
   end
   Dir.chdir RAKEFILE_ROOT do
     system "git clone https://github.com/mruby/mruby #{MRUBY_ROOT}"
