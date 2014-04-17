@@ -21,7 +21,7 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 
 ----
-1. File mrblib/cat.rb and mrblib/lol.rb was licensed under WTFPL
+- File mrblib/cat.rb and mrblib/lol.rb was licensed under WTFPL
 and is converted to The MIT LICENSE in this project.
 
 > DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE  
@@ -39,7 +39,7 @@ and is converted to The MIT LICENSE in this project.
 >  0. You just DO WHAT THE FUCK YOU WANT TO.
 >
 
-2. The file mrblib/minipaint.rb was forked from [janlelis/paint](https://github.com/janlelis/paint/blob/master/lib/paint.rb) and is licensed under the MIT license:
+- The file mrblib/minipaint.rb was forked from [janlelis/paint](https://github.com/janlelis/paint/blob/master/lib/paint.rb) and is licensed under the MIT license:
 
 > The MIT LICENSE
 >
