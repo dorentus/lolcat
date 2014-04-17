@@ -95,4 +95,4 @@ Run `lolcat -h` for details and examples.
 ![screenshot](https://dn-madokami.qbox.me/lolcat/screenshot.png)
 
 ## License
-see [LICENSE](LICENSE)
+see [LICENSE.md](LICENSE.md)
