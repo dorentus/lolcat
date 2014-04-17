@@ -50,7 +50,7 @@ module Lol
   def self.println_plain(str, defaults={}, opts={})
     opts.merge!(defaults)
     str.chomp.split(//).each_with_index do |c,i|
-      print MiniPaint[c, rainbow(opts[:freq], opts[:os]+i/opts[:spread])]
+      print MiniPaint[c, rainbow(opts[:freq], opts[:os]+i/opts[:spread])] rescue IOError
     end
   end
 
