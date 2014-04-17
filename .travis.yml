@@ -1,14 +1,20 @@
 language: c
-compiler:
-  - gcc
-  - clang
-install:
-    - sudo apt-get -qq install gperf
-before_script:
-  - cd ../
-  - git clone https://github.com/mruby/mruby.git
-  - cd mruby
-  - cp -fp ../mruby-lolcat/.travis_build_config.rb build_config.rb
-script:
-  - "./minirake all test"
+script: "cd misc; make test"
+matrix:
+  include:
+    - compiler: gcc
+      rvm: 1.8.7
+
+    - install: sudo apt-get -q install gcc-multilib
+      compiler: gcc
+      env: CFLAGS="-m32" LDFLAGS="-m32"
+      rvm: 1.9.3
+
+    - compiler: clang
+      rvm: 2.0.0
+
+    - install: sudo apt-get -q install gcc-multilib
+      compiler: clang
+      env: CFLAGS="-m32" LDFLAGS="-m32"
+      rvm: 2.1.1
 

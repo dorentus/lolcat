@@ -1,0 +1,4 @@
+[submodule "misc/vendor/mruby"]
+	path = misc/vendor/mruby
+	url = https://github.com/mruby/mruby
+	branch = master

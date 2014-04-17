@@ -1,0 +1,111 @@
+# encoding: utf-8
+require File.expand_path('../../mrblib/version.rb', __FILE__)
+
+RAKEFILE_ROOT = File.dirname(File.expand_path(__FILE__))
+MRUBY_ROOT = "#{RAKEFILE_ROOT}/vendor/mruby"
+
+BUILD_CONFIG = "#{RAKEFILE_ROOT}/src/build_config.rb"
+
+LIBMRUBY_DIR = "#{MRUBY_ROOT}/build/host/lib"
+MRUBY_INCLUDE_DIR = "#{MRUBY_ROOT}/include"
+
+BUILD_DIR = "#{RAKEFILE_ROOT}/build"
+INSTALL_PREFIX = (ENV['PREFIX'] && ENV['PREFIX'] != '') ? ENV['PREFIX'] : '/usr/local'
+
+APPNAME = (ENV['APPNAME'] && ENV['APPNAME'] != '') ? ENV['APPNAME'] : "lolcat"
+APPVERSION = Lol::VERSION
+SRC_FILES = "src/*.c"
+
+task :default => :build
+
+desc "prepair mruby dir"
+task :prepair_mruby do
+  next if File.directory? MRUBY_ROOT
+  if system('git rev-parse 2>/dev/null')
+    system 'git submodule update --init'
+    next if File.directory? MRUBY_ROOT
+  end
+  Dir.chdir RAKEFILE_ROOT do
+    system "git clone https://github.com/mruby/mruby #{MRUBY_ROOT}"
+  end
+end
+
+desc "build mruby libs"
+task :mruby => :prepair_mruby do
+  Dir.chdir MRUBY_ROOT do
+    system "env MRUBY_CONFIG=#{BUILD_CONFIG} make"
+  end
+end
+
+desc "clean mruby libs"
+task :mruby_clean do
+  Dir.chdir MRUBY_ROOT do
+    system "env MRUBY_CONFIG=#{BUILD_CONFIG} make clean"
+  end if File.directory? MRUBY_ROOT
+end
+
+desc "clean downloaded mrbgems"
+task :mruby_gems_clean do
+  FileUtils.rm_r "#{MRUBY_ROOT}/build/mrbgems" if File.directory? "#{MRUBY_ROOT}/build/mrbgems"
+end
+
+desc "build binary"
+task :build => [:mruby] do
+  Dir.mkdir BUILD_DIR unless File.directory? BUILD_DIR
+
+  cflags = ["-O3 -I #{MRUBY_INCLUDE_DIR} -D LOL_APPNAME=\\\"#{APPNAME}\\\" -D LOL_VERSION=\\\"#{APPVERSION}\\\""]
+  cflags << ENV['CFLAGS'] if (ENV['CFLAGS'] && ENV['CFLAGS'] != '')
+
+  ldflags = ['-lm']
+  ldflags << ENV['LDFLAGS'] if (ENV['LDFLAGS'] && ENV['LDFLAGS'] != '')
+
+  cc = (ENV['CC'] && ENV['CC'] != '') ? ENV['CC'] : 'cc'
+
+  system "#{cc} -o #{BUILD_DIR}/#{APPNAME} #{SRC_FILES} #{LIBMRUBY_DIR}/libmruby.a #{cflags.join(' ')} #{ldflags.join(' ')}" || exit!(1)
+end
+
+desc "clean builded binary"
+task :clean => [:mruby_clean] do
+  FileUtils.rm_r BUILD_DIR if File.directory? BUILD_DIR
+end
+
+desc "clean all"
+task :clean_all => [:mruby_gems_clean, :clean]
+
+desc "install"
+task :install => [:build] do
+  bin_file = "#{BUILD_DIR}/#{APPNAME}"
+  target_dir = "#{INSTALL_PREFIX}/bin"
+  Dir.mkdir target_dir unless File.directory? target_dir
+  system "strip #{bin_file}"
+  FileUtils.cp bin_file, target_dir
+  puts "Created: #{target_dir}/#{APPNAME}"
+end
+
+desc "uninstall"
+task :uninstall do
+  target_file = "#{INSTALL_PREFIX}/bin/#{APPNAME}"
+  FileUtils.rm target_file if File.exist? target_file
+  puts "Removed: #{target_file}"
+end
+
+desc "test"
+task :test => [:build] do
+  TEXT_SINGLELINE = 'こんにちは世界'
+  TEXT_MULTILINE = <<-EOF
+  《行路难》
+作者：李白
+金樽清酒斗十千，玉盘珍馐直万钱。
+停杯投箸不能食，拔剑四顾心茫然。
+欲渡黄河冰塞川，将登太行雪暗天。
+闲来垂钓坐溪上，忽复乘舟梦日边。
+行路难，行路难，多歧路，今安在。
+长风破浪会有时，直挂云帆济沧海。
+EOF
+
+  system "#{BUILD_DIR}/#{APPNAME} -v" || exit!(1)
+
+  TEXT_SINGLELINE == %x[echo #{TEXT_SINGLELINE} | #{BUILD_DIR}/#{APPNAME} | tee].strip || exit!(1)
+
+  TEXT_MULTILINE == %x[echo \"#{TEXT_MULTILINE}\" | #{BUILD_DIR}/#{APPNAME} | tee].strip || exit!(1)
+end
