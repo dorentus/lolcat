@@ -51,7 +51,7 @@ brew install dorentus/tap/lolcat_mruby
 ### Usage
 Run `lolcat -h` for details and examples.
 
-![usage](https://dn-madokami.qbox.me/lolcat/usage.png)
+![usage](https://dn-madokami.qbox.me/lolcat/usage_updated.png)
 ![screenshot](https://dn-madokami.qbox.me/lolcat/screenshot.png)
 
 ## As a mruby gem
