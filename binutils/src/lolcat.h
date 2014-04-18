@@ -10,6 +10,10 @@
 # define LOL_APPNAME "lolcat"
 #endif
 
+#ifndef LOL_VERSION
+# define LOL_VERSION "0.0.0"
+#endif
+
 #define LOL_REPO_URL "https://github.com/dorentus/mruby-lolcat-bin"
 
 #define LOL_SPREAD 3.0
@@ -54,7 +58,7 @@
 # define LOL_ARCH_NAME ""
 #endif
 
-#define LOL_VERSION_MESSAGE "RAINBOWS AN UNICORNS!\n"LOL_APPNAME" v"LOL_VERSION" "LOL_ARCH_NAME" mruby "MRUBY_VERSION"\n"
+#define LOL_VERSION_MESSAGE "RAINBOWS AN UNICORNS!\n"LOL_APPNAME" v"LOL_VERSION" "LOL_ARCH_NAME", using mruby "MRUBY_VERSION"\n"
 
 /**
  * Notice:
