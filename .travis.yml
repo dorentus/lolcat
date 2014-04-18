@@ -18,3 +18,12 @@ matrix:
       env: CFLAGS="-m32" LDFLAGS="-m32"
       rvm: 2.1.1
 
+    - before_script: export LANG=en_US.UTF-8
+      language: objective-c
+      compiler: clang
+      rvm: system
+
+    - before_script: export LANG=en_US.UTF-8
+      language: objective-c
+      compiler: clang
+      env: CFLAGS="-m32" LDFLAGS="-m32"
