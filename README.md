@@ -95,4 +95,4 @@ fd.close
 ```
 
 ## License
-see [LICENSE.md](LICENSE.md)
+[The MIT LICENSE](LICENSE)
