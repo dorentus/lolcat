@@ -14,7 +14,7 @@
 # define LOL_VERSION "0.0.0"
 #endif
 
-#define LOL_REPO_URL "https://github.com/dorentus/mruby-lolcat-bin"
+#define LOL_REPO_URL "https://github.com/dorentus/mruby-lolcat"
 
 #define LOL_SPREAD 3.0
 #define LOL_FREQ 0.1
