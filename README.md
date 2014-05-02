@@ -3,7 +3,7 @@ mruby fork of the [`lolcat`](https://github.com/busyloop/lolcat/).
 
 Powerd by [mruby](https://github.com/mruby/mruby), will build a standalone binary for OS X, Linux, or maybe for any other *NIX platforms.
 
-[![Build Status](https://travis-ci.org/dorentus/mruby-lolcat.svg)](https://travis-ci.org/dorentus/mruby-lolcat)
+[![Build Status](http://img.shields.io/travis/dorentus/mruby-lolcat.svg?style=flat)](https://travis-ci.org/dorentus/mruby-lolcat)
 
 ## Special Thanks
 - https://github.com/busyloop/lolcat, the original ruby gem, most of the code was from there
@@ -26,7 +26,7 @@ To compile out of the source code you need the following tools:
 Read [mruby's document](https://github.com/mruby/mruby/tree/master/doc/compile)  for more infomation.
 
 #### Get the code
-```
+```bash
 git clone https://github.com/dorentus/mruby-lolcat.git
 cd mruby-lolcat
 ```
@@ -34,17 +34,17 @@ Or if you'd prefer downloading tarballs, navigate to: https://github.com/dorentu
 
 #### Build
 The following command will build and install `lolcat` to `/usr/local/bin/lolcat`:
-```
+```bash
 make -C binutils install PREFIX=/usr/local APPNAME=lolcat
 ```
 Or you could just run:
-```
+```bash
 make -C binutils install
 ```
 
 #### If you're using OS X and [homebrew](https://github.com/Homebrew/homebrew)
 Ignore previous instructions and just do:
-```
+```bash
 brew install dorentus/tap/lolcat_mruby
 ```
 
