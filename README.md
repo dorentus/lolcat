@@ -45,7 +45,7 @@ make -C binutils install
 #### If you're using OS X and [homebrew](https://github.com/Homebrew/homebrew)
 Ignore previous instructions and just do:
 ```bash
-brew install dorentus/tap/lolcat_mruby
+brew install dorentus/recipes/lolcat_mruby
 ```
 
 ### Usage
