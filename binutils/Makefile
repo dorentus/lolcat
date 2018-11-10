@@ -1,4 +1,4 @@
-RAKE = ruby vendor/minirake
+RAKE = ruby vendor/mruby/minirake
 
 all :
 	$(RAKE)
