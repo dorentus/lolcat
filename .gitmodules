@@ -1,4 +1,4 @@
 [submodule "binutils/vendor/mruby"]
 	path = binutils/vendor/mruby
 	url = https://github.com/mruby/mruby
-	branch = stable
+	tag = 2.0.1
